@@ -1,34 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Circle : MonoBehaviour {
-
-	SpriteRenderer sr;
+	private SpriteRenderer _sr;
 	/// <summary>
 	/// высота диска в юнитах
 	/// </summary>
 	/// <value>высота</value>
-	public float height{
+	public static float Height{
 		get{
 			return 0.42f;
 			}
 		}
-	
-	void Awake () {
-		sr = GetComponentInChildren<SpriteRenderer>();
+
+	private void Awake () {
+		_sr = GetComponentInChildren<SpriteRenderer>();
 	}
-/// <summary>
-/// перемещает диск на первый план
-/// </summary>
+	/// <summary>
+	/// перемещает диск на первый план
+	/// </summary>
 	public void StartMove(){
-		sr.sortingOrder = 10;
+		_sr.sortingOrder = 10;
 	}
-/// <summary>
-/// перемещает диск на общий слой
-/// </summary>	
+	/// <summary>
+	/// перемещает диск на общий слой
+	/// </summary>	
 	public void StopMove(){
-		sr.sortingOrder = 1;
+		_sr.sortingOrder = 1;
 	}
 
 }

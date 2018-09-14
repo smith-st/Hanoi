@@ -8,16 +8,15 @@ static class ListExtension
     /// возвращает последний элемент
     /// </summary>
     public static T Pop<T>(this List<T> list) {
-        T item = list[list.Count-1];
+        var item = list[list.Count-1];
         list.Remove(item);
         return item;
     }
     /// <summary>
     /// возвращает первый элемент
     /// </summary>
-    
     public static T Shift<T>(this List<T> list){
-        T item = list[0];
+        var item = list[0];
         list.Remove(item);
         return item;
     }

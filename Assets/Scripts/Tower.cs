@@ -1,28 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    List<Circle> allCircles = new List<Circle>(0);//хранит все диски
+    readonly List<Circle> _allCircles = new List<Circle>(0);//хранит все диски
 	/// <summary>
 	/// возвращает позицию для нового диска
 	/// </summary>
 	/// <value>позиция</value>
-    public Vector3 positionForNewCircle
+    public Vector3 PositionForNewCircle
     {
         get
         {
-            if (allCircles.Count == 0)
+            if (_allCircles.Count == 0)
             {
-                return this.transform.position;
-            }
-            else
-            {
-                Circle last = allCircles[allCircles.Count - 1];
+                return transform.position;
+            }else{
+                var last = _allCircles[_allCircles.Count - 1];
                 return new Vector3(
                     last.transform.position.x,
-                    last.transform.position.y + last.height,
+                    last.transform.position.y + Circle.Height,
                     last.transform.position.z
                 );
             }
@@ -31,45 +28,34 @@ public class Tower : MonoBehaviour
 	
 	///<summary>Добавляет диск на эту башню</summary>
 	///<param name="circle">диск</param>
-	public void AddCircles(Circle circle)
-    {
-        circle.transform.position = positionForNewCircle;
-        allCircles.Add(circle);
+	public void AddCircles(Circle circle) {
+        circle.transform.position = PositionForNewCircle;
+        _allCircles.Add(circle);
     }
 
 
 	///<summary>Возвращает диск из башни</summary>
-    public Circle GetCircle()
-    {
-        if (allCircles.Count == 0)
+    public Circle GetCircle(){
+        if (_allCircles.Count == 0)
             return null;
         else
-            return allCircles.Pop();
+            return _allCircles.Pop();
     }
 
 	///<summary>Показывает диски на башне </summary>
 	///<param name="to">до какого диска показать, все после этого будут спрятаны</param>
-    public void ShowCircle(int to)
-    {
-        for (int i = 0; i < allCircles.Count; i++)
-        {
-            if (i < to)
-                allCircles[i].gameObject.SetActive(true);
-            else
-                allCircles[i].gameObject.SetActive(false);
-
-
+    public void ShowCircle(int to) {
+        for (var i = 0; i < _allCircles.Count; i++) {
+            _allCircles[i].gameObject.SetActive(i < to);
         }
     }
 	///<summary>Удаляет все диски с башни</summary>
-    public void Reset()
-    {
-        for (int i = 0; i < allCircles.Count; i++)
-        {
-            Destroy(allCircles[i].gameObject);
-        }
-        allCircles.Clear();
-    }
+    public void Reset() {
+	    foreach (var circle in _allCircles) {
+	        Destroy(circle.gameObject);
+	    }
+	    _allCircles.Clear();
+	}
 
 
 }

@@ -508,7 +508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &456100447
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1174,6 +1174,7 @@ GameObject:
   - component: {fileID: 984111189}
   - component: {fileID: 984111188}
   - component: {fileID: 984111187}
+  - component: {fileID: 984111191}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1260,6 +1261,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &984111191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 984111186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 150d7653b3a747a0beafc6345d35885f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _txtCircleCount: {fileID: 2093321023}
+  _txtSteps: {fileID: 1821799912}
+  _txtStepsOnComplete: {fileID: 1969272141}
+  _setupCont: {fileID: 456100446}
+  _progressCont: {fileID: 1883951081}
+  _completeCont: {fileID: 1437924811}
 --- !u!1 &988460612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,7 +1725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1437924812
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1964,6 +1982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1870255807}
   - component: {fileID: 1870255806}
+  - component: {fileID: 1870255808}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -1982,7 +2001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfba1cd5ad9d5424595b725187d0ecca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circles:
+  _circles:
   - {fileID: 1836787870727750, guid: b40c14a3441b5ed4da0813f34f8b9dc4, type: 2}
   - {fileID: 1573127271951766, guid: c4f41628ddc1328469b7dfb07e448053, type: 2}
   - {fileID: 1671573415537836, guid: 896c2cd9b060f97438af0e4b2a0abc6f, type: 2}
@@ -1993,16 +2012,11 @@ MonoBehaviour:
   - {fileID: 1606851723131380, guid: 4d1580b9fa46adf4eacecededbb33174, type: 2}
   - {fileID: 1144227145946398, guid: 5b16a4c78bbc7194d8171b45f6ba6b3e, type: 2}
   - {fileID: 1880280247953390, guid: b3b94b583bfe12846adc5ebf4c009abe, type: 2}
-  towers:
+  _towers:
   - {fileID: 225478210}
   - {fileID: 1837763877}
   - {fileID: 317144987}
-  txtCircleCount: {fileID: 2093321023}
-  txtSteps: {fileID: 1821799912}
-  txtStepsOnComplete: {fileID: 1969272141}
-  setupCont: {fileID: 456100446}
-  progressCont: {fileID: 1883951081}
-  completeCont: {fileID: 1437924811}
+  _ui: {fileID: 0}
 --- !u!4 &1870255807
 Transform:
   m_ObjectHideFlags: 0
@@ -2016,6 +2030,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1870255808
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1870255805}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2db232b24e66cda48a8c96e981d8eeba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1873558756
 GameObject:
   m_ObjectHideFlags: 0
